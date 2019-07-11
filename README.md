@@ -67,9 +67,11 @@ It takes which takes following parameters, which must be provided by the user:
 
 Next, we define the argument functions for the gradient descent class.
 
-fn_loss: takes in x and y arguments, returns out loss function - Schaffer function No2
-fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of x
-fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of y
+- fn_loss: takes in x and y arguments, returns out loss function - Schaffer function No2
+- fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of x
+- fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of y
 
 Now, we can apply plain vanilla gradient descent by instantiating the gd_pv class with the given loss and gradient functions.
+Number of steps: 1540979
+
 
