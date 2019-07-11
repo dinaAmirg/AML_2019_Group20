@@ -33,3 +33,43 @@ As we have seen Gradient descent is an optimization algorithm used to find the v
 **Stochastic Gradient Descent** is an alternative to vanilla gradient descent. It uses a single example (batch of 1) per each learning step (new iterations with corresponding new RSS/loss results). Constant update allows us to have a detailed rate of improvement. It is much faster since it has few data to manipulate at every iteration, however, it can return gradients with unstable error rate. Therefore, as it “jumps around” (stochastic behavior) when the algorithm stops instead of finding the optimal fit it ends up obtaining only good results. Due to its stochastic nature, the algorithm is much less regular than the previous one. 
 
 
+# Plain vanilla gradient descent on a function with two variables
+The chosen function is the Schaffer function No2:
+
+𝑓(𝑥,𝑦)=0.5+𝑠𝑖𝑛2(𝑥2−𝑦2)−0.5(1+0.001(𝑥2+𝑦2))2
+ 
+It has two variables x and y, many local minima, one global maxima and one global minima.
+
+Global minima:
+𝑓(𝑥,𝑦)=0,𝑎𝑡(𝑥,𝑦)=(0,0)
+ 
+The function is usually evaluated on the square x ∈ [-100, 100] and y ∈ [-100, 100] for the further visualisation below.
+
+![figure 2 - Visualisation of the Schaffer function No2](https://ibb.co/HnG8rsW)
+
+To illustrate plain vanilla gradient decsent on Schaffer function No2, a class <b>gd_pv</b> is created. It is instantiated with with a loss function, and two functions that return the gradient of the loss function at any given value of x and y. 
+- fn_loss
+- fn_grad_x
+- fn_grad_y
+
+The class contains a method <b>step</b>, which minimises the cost of the given loss function and where the actual gradient descent takes place. It takes initial values for x and y and updates them based on steps taken via the learning rate. 
+
+Then, it outputs the most minimum values of x and y that reaches the stop condition (precision stop), which means that when the absolute difference between our old and updated x and y values are greater than a precision value, the algorithm should stop. 
+
+The method will also print out the minumum of the loss function, the minimum values of x and y, as well as the number of steps or descents it took to reach that value.
+
+It takes which takes following parameters, which must be provided by the user:
+- x_init: an initial guess for the value of x that minimises the function
+- y_init: an initial guess for the value of y that minimises the function
+- n_iter: maximum given number of iterations for the algorythm
+- precision: a precision that determines the stop of the stepwise descent 
+- l_r: learning rate or step size
+
+Next, we define the argument functions for the gradient descent class.
+
+fn_loss: takes in x and y arguments, returns out loss function - Schaffer function No2
+fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of x
+fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of y
+
+Now, we can apply plain vanilla gradient descent by instantiating the gd_pv class with the given loss and gradient functions.
+
