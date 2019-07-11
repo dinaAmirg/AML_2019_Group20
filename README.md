@@ -73,30 +73,26 @@ Next, we define the argument functions for the gradient descent class.
 
 Now, we can apply plain vanilla gradient descent by instantiating the gd_pv class with the given loss and gradient functions. With given parameters, gradient descent with learning rate of 0.001 was able to minimise the Schaffer function No2 in 1540979 steps. By minimising the function, the plain vanilla gradient descent finds the corresponding values of x and y determining the global minimum.
 
-*Number of steps: 1540979
-The minimum of the loss function: 0.003126615752
-Global minimum occurs at:
+*Number of steps: 1540979*
+
+*The minimum of the loss function: 0.003126615752*
+
+*Global minimum occurs at:
 x = 1.7723150369215577
 y = 0.002523625545385108*
 
 To evaluate the changes that occur in the implementation of the gradient descent with different step sizes, we take the same parameters and gradually decrease from 0.01 to 0.0001. Given the complexity of the Schaffer No2 function the number of iterations is set to 10000000. Apart from the step size, the remaining ouput should not change.
 
 ---------------------------------------------------------
-Learning Rate is  0.01
-Number of steps: 154096
+Learning Rate is  0.01, Number of steps: 154096
 ---------------------------------------------------------
-Learning Rate is  0.003
-Number of steps: 513658
+Learning Rate is  0.003, Number of steps: 513658
 ---------------------------------------------------------
-Learning Rate is  0.002
-Number of steps: 770488
+Learning Rate is  0.002, Number of steps: 770488
 ---------------------------------------------------------
-Learning Rate is  0.001
-Number of steps: 1540979
-
+Learning Rate is  0.001, Number of steps: 1540979
 ---------------------------------------------------------
-Learning Rate is  0.0001
-Number of steps: 15409814
+Learning Rate is  0.0001, Number of steps: 15409814
 ---------------------------------------------------------
 
 From the output of the loop, it generally can be that the smaller is the learning rate, the larger is the number of steps required for the gradient descent to minimise the function.
