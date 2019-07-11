@@ -45,7 +45,7 @@ Global minima:
  
 The function is usually evaluated on the square x ∈ [-100, 100] and y ∈ [-100, 100] for the further visualisation below.
 
-![figure 2 - Visualisation of the Schaffer function No2](https://ibb.co/HnG8rsW)
+![figure 2 - Visualisation of the Schaffer function No2]
 
 To illustrate plain vanilla gradient decsent on Schaffer function No2, a class <b>gd_pv</b> is created. It is instantiated with with a loss function, and two functions that return the gradient of the loss function at any given value of x and y. 
 - fn_loss
@@ -71,7 +71,42 @@ Next, we define the argument functions for the gradient descent class.
 - fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of x
 - fn_grad_x: takes in x and y arguments, returns differentiated gradient function for any given value of y
 
-Now, we can apply plain vanilla gradient descent by instantiating the gd_pv class with the given loss and gradient functions.
+Now, we can apply plain vanilla gradient descent by instantiating the gd_pv class with the given loss and gradient functions. With given parameters, gradient descent with learning rate of 0.001 was able to minimise the Schaffer function No2 in 1540979 steps. By minimising the function, the plain vanilla gradient descent finds the corresponding values of x and y determining the global minimum.
+
+*Number of steps: 1540979
+The minimum of the loss function: 0.003126615752
+Global minimum occurs at:
+x = 1.7723150369215577
+y = 0.002523625545385108*
+
+To evaluate the changes that occur in the implementation of the gradient descent with different step sizes, we take the same parameters and gradually decrease from 0.01 to 0.0001. Given the complexity of the Schaffer No2 function the number of iterations is set to 10000000. Apart from the step size, the remaining ouput should not change.
+
+---------------------------------------------------------
+Learning Rate is  0.01
+Number of steps: 154096
+---------------------------------------------------------
+Learning Rate is  0.003
+Number of steps: 513658
+---------------------------------------------------------
+Learning Rate is  0.002
+Number of steps: 770488
+---------------------------------------------------------
+Learning Rate is  0.001
 Number of steps: 1540979
 
+---------------------------------------------------------
+Learning Rate is  0.0001
+Number of steps: 15409814
+---------------------------------------------------------
 
+From the output of the loop, it generally can be that the smaller is the learning rate, the larger is the number of steps required for the gradient descent to minimise the function.
+
+**Momentum gradient descent**. For vanilla gradient descent, we use plain derivative as gradient to update the values of x and y. In momentum, instead of using dW and db independently for each iteration, we take the exponentially weighted averages of x and y, with alpa is another hyperparameter called momentum and ranges from 0 to 1. It sets the weight between the average of previous values and the current value to calculate the new weighted average. After calculating exponentially weighted averages, we will update our parameters. The class for momentum method is created below. Alpha must be predefined by the user.
+
+**Nesterov accelerated gradient**. Another method that is closely related to Momentum method is Nesterov Accelerated Gradient. Momentum method, the gradient was computed using current parameters of nu, whereas in Nesterov Accelerated Gradient, we apply the velocity mu to the parameters nu to compute interim parameters. We then compute the gradient using those interim parameters.
+
+- Plain Vanilla GD: 1540979 steps
+- Momentum GD: 6044 steps
+- Nesterev GD: 5150 steps
+
+Comparing three different Gradient Descent methods results, it can clearly been seen that more complex algorithms that backed up by more sophisticated update rules at each iteration t, like Momentum abd  Nesterev GDs, manage to minimise the cost function more efficiently taking the less number of steps. In Leiman terms, while plain vanilla GD simply jumps to the next value of calculated x and y based on the differentiation, more complex GDs jump in a more randomised way. Momentum and Nesterev GD are quite similar to each other, however, for Schaffer No2 function Nesterev GD is the most efficient. 
