@@ -45,7 +45,7 @@ Global minima:
  
 The function is usually evaluated on the square x ∈ [-100, 100] and y ∈ [-100, 100] for the further visualisation below.
 
-![figure 2 - Visualisation of the Schaffer function No2](https://cdn1.imggmi.com/uploads/2019/7/12/52150eada364e83245f43872be57c482-full.png)
+![figure 2 - Visualisation of the Schaffer function No2](schaffer.png)
 
 To illustrate plain vanilla gradient decsent on Schaffer function No2, a class <b>gd_pv</b> is created. It is instantiated with with a loss function, and two functions that return the gradient of the loss function at any given value of x and y. 
 - fn_loss
